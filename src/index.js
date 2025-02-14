@@ -1,9 +1,10 @@
-import React from 'react'
+import React from "react";
 
-function Counter() {
-  const [count, setCount] = React.useState(0)
-  const increment = () => setCount(c => c + 1)
-  return <button onClick={increment}>{count}</button>
+export function WithImplicitRole() {
+  return <s>Strike-through without role</s>;
 }
 
-export default Counter
+export function WithExplicitRole() {
+  return <s role="deletion">Strike-through with role</s>;
+}
+

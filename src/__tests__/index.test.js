@@ -1,13 +1,13 @@
-import React from 'react'
-import {render, fireEvent} from '@testing-library/react'
-import Counter from '../'
+import React from "react";
+import { render, screen } from "@testing-library/react";
+import { WithImplicitRole, WithExplicitRole } from "..";
 
-test('increments the count', () => {
-  const {getByText} = render(<Counter />)
-  const button = getByText('0')
-  fireEvent.click(button)
-  expect(button).toHaveTextContent('1')
-  fireEvent.click(button)
-  expect(button).toHaveTextContent('2')
-})
+test("with implicit role", () => {
+  render(<WithImplicitRole />);
+  expect(screen.getByRole("deletion")).toBeInTheDocument();
+});
 
+test("with explict role", () => {
+  render(<WithExplicitRole />);
+  expect(screen.getByRole("deletion")).toBeInTheDocument();
+});
